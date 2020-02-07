@@ -10,4 +10,4 @@ mkdir build 2> /dev/null
 rm -rf build/*
 
 ./dgnmcc "$1" "build/compiled.asm"
-./dgnasm "build/compiled.asm" "build/assembled.lst" "$2"
+./dgnasm -ha "support/dgnmcl.asm" "$2" "build/assembled.lst"
