@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+  echo "usage: $0 input_file.c output_file.bin"
+  exit 1
+fi
+
+# Clean the build director
+mkdir build 2> /dev/null
+rm -rf build/*
+
+./dgnmcc "$1" "build/compiled.asm"
+./dgnasm "build/compiled.asm" "build/assembled.lst" "$2"
